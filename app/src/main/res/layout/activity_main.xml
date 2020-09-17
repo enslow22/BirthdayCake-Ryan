@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="goodbye"
-                android:text="Goodbye" />
+                android:text="extinguish" />
 
             <Button
                 android:id="@+id/blowout"
