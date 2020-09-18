@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         SeekBar numCandles = findViewById(R.id.numCandles);
         numCandles.setOnSeekBarChangeListener(listener);
+
+        view.setOnTouchListener(listener);
     }
 
     public void goodbye(View button) {
