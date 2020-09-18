@@ -19,6 +19,9 @@ public class CakeView extends SurfaceView {
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
 
+    Paint stringPaint = new Paint();
+    Paint balloonPaint = new Paint();
+
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
         and adapting to different tablets' screen sizes and resolutions.  I've deliberately
@@ -35,6 +38,10 @@ public class CakeView extends SurfaceView {
     public static final float wickWidth = 6.0f;
     public static final float outerFlameRadius = 30.0f;
     public static final float innerFlameRadius = 15.0f;
+
+    public static final float balloonHeight = 100.0f;
+    public static final float balloonWidth = 70.0f;
+    public static final float stringLength = 400.0f;
 
 
 
@@ -61,6 +68,11 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+
+        //Set Balloon Color
+        balloonPaint.setColor(Color.CYAN);
+        //Set String Color
+        stringPaint.setColor(Color.BLACK);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -101,6 +113,10 @@ public class CakeView extends SurfaceView {
     @Override
     public void onDraw(Canvas canvas)
     {
+
+
+
+
         //top and bottom are used to keep a running tally as we progress down the cake layers
         float top = cakeTop;
         float bottom = cakeTop + frostHeight;
@@ -128,6 +144,11 @@ public class CakeView extends SurfaceView {
             drawCandle(canvas,cakeLeft + j*cakeWidth/5 +cakeWidth/10,cakeTop);
         }
 
+
+        //Draw the string attached to the balloon
+        canvas.drawRect(cModel.BalloonXPos-5.0f,cModel.BalloonYPos-balloonHeight,cModel.BalloonXPos+5.0f,cModel.BalloonYPos+stringLength,stringPaint);
+        //Draw the Balloon with the given coordinates in CakeModel
+        canvas.drawOval(cModel.BalloonXPos-balloonWidth,cModel.BalloonYPos+ balloonHeight,cModel.BalloonXPos+balloonWidth,cModel.BalloonYPos- balloonHeight,balloonPaint);
 
     }//onDraw
 
