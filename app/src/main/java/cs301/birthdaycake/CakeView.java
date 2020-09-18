@@ -18,6 +18,7 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint redPaint = new Paint();
 
     Paint stringPaint = new Paint();
     Paint balloonPaint = new Paint();
@@ -68,6 +69,8 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        redPaint.setColor(Color.RED);
+        redPaint.setTextSize(50.0f);
 
         //Set Balloon Color
         balloonPaint.setColor(Color.CYAN);
@@ -144,6 +147,7 @@ public class CakeView extends SurfaceView {
             drawCandle(canvas,cakeLeft + j*cakeWidth/5 +cakeWidth/10,cakeTop);
         }
 
+        canvas.drawText(cModel.coord, 1300.0f, 750.0f, redPaint);
 
         //Draw the string attached to the balloon
         canvas.drawRect(cModel.BalloonXPos-5.0f,cModel.BalloonYPos-balloonHeight,cModel.BalloonXPos+5.0f,cModel.BalloonYPos+stringLength,stringPaint);

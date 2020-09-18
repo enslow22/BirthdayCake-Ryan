@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         CakeView view = findViewById(R.id.cakeview);
+        CakeController controller = new CakeController(view);
 
 
         CakeController listener = new CakeController(view);
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         numCandles.setOnSeekBarChangeListener(listener);
 
         view.setOnTouchListener(listener);
+
 
 
 
